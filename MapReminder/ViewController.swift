@@ -7,19 +7,30 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Long Press Gesture Recognizer on Map View
+        let longPress = UILongPressGestureRecognizer(target: self, action: "didLongPressMap:")
+        mapView.addGestureRecognizer(longPress)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
 
+    // MARK: - GESTURE RECOGNIZER
+    
+    func didLongPressMap(sender: UILongPressGestureRecognizer) {
+        println("Map Long Pressed.")
+    }
 
 }
 

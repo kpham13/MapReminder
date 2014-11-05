@@ -14,6 +14,7 @@
 		0AAE9D331A09B45F007BAC6B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AAE9D321A09B45F007BAC6B /* Images.xcassets */; };
 		0AAE9D361A09B45F007BAC6B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAE9D341A09B45F007BAC6B /* LaunchScreen.xib */; };
 		0AAE9D421A09B45F007BAC6B /* MapReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE9D411A09B45F007BAC6B /* MapReminderTests.swift */; };
+		0ACCFBA61A09D0F90048BFD4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		0AAE9D3B1A09B45F007BAC6B /* MapReminderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MapReminderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAE9D401A09B45F007BAC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AAE9D411A09B45F007BAC6B /* MapReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapReminderTests.swift; sourceTree = "<group>"; };
+		0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACCFBA61A09D0F90048BFD4 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 		0AAE9D1A1A09B45E007BAC6B = {
 			isa = PBXGroup;
 			children = (
+				0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */,
 				0AAE9D251A09B45F007BAC6B /* MapReminder */,
 				0AAE9D3E1A09B45F007BAC6B /* MapReminderTests */,
 				0AAE9D241A09B45F007BAC6B /* Products */,
@@ -188,6 +192,11 @@
 				TargetAttributes = {
 					0AAE9D221A09B45F007BAC6B = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					0AAE9D3A1A09B45F007BAC6B = {
 						CreatedOnToolsVersion = 6.1;
@@ -435,6 +444,7 @@
 				0AAE9D471A09B45F007BAC6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0AAE9D481A09B45F007BAC6B /* Build configuration list for PBXNativeTarget "MapReminderTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +453,7 @@
 				0AAE9D4A1A09B45F007BAC6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
