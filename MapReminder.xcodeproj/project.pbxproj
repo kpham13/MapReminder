@@ -15,6 +15,9 @@
 		0AAE9D361A09B45F007BAC6B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0AAE9D341A09B45F007BAC6B /* LaunchScreen.xib */; };
 		0AAE9D421A09B45F007BAC6B /* MapReminderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE9D411A09B45F007BAC6B /* MapReminderTests.swift */; };
 		0ACCFBA61A09D0F90048BFD4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */; };
+		0ACCFBA81A09D77F0048BFD4 /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACCFBA71A09D77F0048BFD4 /* AddReminderViewController.swift */; };
+		0ACCFBAA1A0D3E1A0048BFD4 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACCFBA91A0D3E1A0048BFD4 /* RemindersViewController.swift */; };
+		0ACCFBB01A0D962B0048BFD4 /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACCFBAF1A0D962B0048BFD4 /* Reminder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,9 @@
 		0AAE9D401A09B45F007BAC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AAE9D411A09B45F007BAC6B /* MapReminderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapReminderTests.swift; sourceTree = "<group>"; };
 		0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0ACCFBA71A09D77F0048BFD4 /* AddReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
+		0ACCFBA91A0D3E1A0048BFD4 /* RemindersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		0ACCFBAF1A0D962B0048BFD4 /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		0AAE9D4B1A09B46C007BAC6B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0ACCFBAF1A0D962B0048BFD4 /* Reminder.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -138,6 +145,8 @@
 		0AAE9D4D1A09B47B007BAC6B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0ACCFBA71A09D77F0048BFD4 /* AddReminderViewController.swift */,
+				0ACCFBA91A0D3E1A0048BFD4 /* RemindersViewController.swift */,
 				0AAE9D2D1A09B45F007BAC6B /* ViewController.swift */,
 			);
 			name = Controller;
@@ -248,9 +257,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ACCFBA81A09D77F0048BFD4 /* AddReminderViewController.swift in Sources */,
 				0AAE9D2E1A09B45F007BAC6B /* ViewController.swift in Sources */,
 				0AAE9D2C1A09B45F007BAC6B /* MapReminder.xcdatamodeld in Sources */,
+				0ACCFBB01A0D962B0048BFD4 /* Reminder.swift in Sources */,
 				0AAE9D291A09B45F007BAC6B /* AppDelegate.swift in Sources */,
+				0ACCFBAA1A0D3E1A0048BFD4 /* RemindersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

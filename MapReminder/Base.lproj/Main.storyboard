@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MapReminder" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rbd-Fa-R8h" secondAttribute="trailing" constant="-16" id="ZEx-Sd-jt6"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Z7A-aj-3gB"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="Z7A-aj-3gB"/>
                     <connections>
                         <outlet property="mapView" destination="rbd-Fa-R8h" id="9V0-i7-xBb"/>
                     </connections>
@@ -37,6 +37,115 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1172" y="400"/>
+        </scene>
+        <!--Reminders-->
+        <scene sceneID="NnM-db-z2j">
+            <objects>
+                <viewController id="UWW-oA-u5K" customClass="RemindersViewController" customModule="MapReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dAC-oC-zTv"/>
+                        <viewControllerLayoutGuide type="bottom" id="3ku-aT-sHG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lGd-7W-ghu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Nhi-FS-Us3">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TABLEVIEW_CELL" id="RUe-0O-Vnh">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RUe-0O-Vnh" id="3f4-jb-HRj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nhi-FS-Us3" secondAttribute="trailing" constant="-16" id="VIU-SN-s5h"/>
+                            <constraint firstItem="Nhi-FS-Us3" firstAttribute="top" secondItem="lGd-7W-ghu" secondAttribute="topMargin" id="Vne-Qj-b3g"/>
+                            <constraint firstItem="Nhi-FS-Us3" firstAttribute="bottom" secondItem="lGd-7W-ghu" secondAttribute="bottomMargin" id="mNO-S9-Oh6"/>
+                            <constraint firstItem="Nhi-FS-Us3" firstAttribute="leading" secondItem="lGd-7W-ghu" secondAttribute="leadingMargin" constant="-16" id="pvZ-hk-jXg"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Reminders" id="z6t-aI-Hmw"/>
+                    <connections>
+                        <outlet property="tableView" destination="Nhi-FS-Us3" id="anq-eK-N5O"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XCC-XU-R1e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="1150"/>
+        </scene>
+        <!--Add Reminder View Controller-->
+        <scene sceneID="ErX-W3-G1r">
+            <objects>
+                <viewController storyboardIdentifier="ADD_REMINDER_VC" id="RXb-G4-RTS" customClass="AddReminderViewController" customModule="MapReminder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xtU-dS-7hN"/>
+                        <viewControllerLayoutGuide type="bottom" id="oJp-5n-ZOB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2Cc-sR-y4w">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8gQ-p7-vbF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="FeH-oQ-7xi"/>
+                                </constraints>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvD-nG-Ouh">
+                                <rect key="frame" x="238" y="215" width="125" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xlc-iK-DzT">
+                                <rect key="frame" x="200" y="240" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0oQ-jg-c3d"/>
+                                    <constraint firstAttribute="width" constant="200" id="ADe-6c-4Kw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gv7-tq-LRw">
+                                <rect key="frame" x="251" y="285" width="99" height="30"/>
+                                <state key="normal" title="Add Reminder">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addReminderButton:" destination="RXb-G4-RTS" eventType="touchUpInside" id="Jee-mh-SR1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WvD-nG-Ouh" firstAttribute="top" secondItem="8gQ-p7-vbF" secondAttribute="bottom" constant="15" id="0O8-et-g78"/>
+                            <constraint firstAttribute="centerX" secondItem="Gv7-tq-LRw" secondAttribute="centerX" id="4pB-cy-wyy"/>
+                            <constraint firstItem="Xlc-iK-DzT" firstAttribute="top" secondItem="WvD-nG-Ouh" secondAttribute="bottom" constant="4" id="7Qj-fF-ESQ"/>
+                            <constraint firstItem="Gv7-tq-LRw" firstAttribute="top" secondItem="Xlc-iK-DzT" secondAttribute="bottom" constant="15" id="OS6-wb-Yz6"/>
+                            <constraint firstItem="8gQ-p7-vbF" firstAttribute="leading" secondItem="2Cc-sR-y4w" secondAttribute="leadingMargin" constant="-16" id="TSC-N7-vsO"/>
+                            <constraint firstAttribute="centerX" secondItem="WvD-nG-Ouh" secondAttribute="centerX" id="cva-pi-vQc"/>
+                            <constraint firstItem="8gQ-p7-vbF" firstAttribute="top" secondItem="2Cc-sR-y4w" secondAttribute="topMargin" id="hwt-MY-Qr3"/>
+                            <constraint firstAttribute="centerX" secondItem="Xlc-iK-DzT" secondAttribute="centerX" id="tyL-eU-eBn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8gQ-p7-vbF" secondAttribute="trailing" constant="-16" id="wig-iS-CXx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="8gQ-p7-vbF" id="rLe-Aj-sYQ"/>
+                        <outlet property="reminderLabel" destination="WvD-nG-Ouh" id="HVQ-sk-mkJ"/>
+                        <outlet property="reminderTextField" destination="Xlc-iK-DzT" id="Uhf-0V-FGK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQe-ZI-u5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1864" y="400"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="e1s-fe-diN">
@@ -50,6 +159,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="Hx4-HB-ZqF"/>
+                        <segue destination="UWW-oA-u5K" kind="relationship" relationship="viewControllers" id="E2B-Qz-GWz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8CH-Mx-F9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
