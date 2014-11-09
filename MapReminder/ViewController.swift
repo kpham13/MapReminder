@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import CoreData
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -25,11 +26,11 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         switch CLLocationManager.authorizationStatus() as CLAuthorizationStatus {
         case .Authorized:
             println("CLAuthorizationStatus: Authorized")
-            //self.locationManager.startUpdatingLocation()
-            self.mapView.showsUserLocation = true
+            mapView.showsUserLocation = true
+            locationManager.startUpdatingLocation()
         case .NotDetermined:
             println("CLAuthorizationStatus: Not Determined")
-            self.locationManager.requestAlwaysAuthorization()
+            locationManager.requestAlwaysAuthorization()
         case .Restricted:
             println("CLAuthorizationStatus: Restricted")
         case .Denied:
@@ -106,7 +107,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         switch status {
         case .Authorized:
             println("Changed to Authorized")
-            //self.locationManager.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
         default:
             println("Default on Authorization Change")
         }
@@ -114,17 +115,33 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     
     func locationManager(manager: CLLocationManager!, didEnterRegion region: CLRegion!) {
         println("Entering Region...")
+        
+        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+            var notification = UILocalNotification()
+            notification.alertAction = "Entered a monitored region."
+            notification.alertBody = "You've just entered a monitored region!"
+            notification.fireDate = NSDate()
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
     }
     
     func locationManager(manager: CLLocationManager!, didExitRegion region: CLRegion!) {
         println("Leaving Region...")
+        
+        if (UIApplication.sharedApplication().applicationState == UIApplicationState.Background) {
+            var notification = UILocalNotification()
+            notification.alertAction = "Left a monitored region."
+            notification.alertBody = "You have left a monitored region!"
+            notification.fireDate = NSDate()
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        }
     }
     
     func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        println("We got a location update!")
+        //println("We got a location update!")
         
         if let location = locations.last as? CLLocation {
-            println(" \(location.coordinate.latitude)")
+            //println(" \(location.coordinate.latitude)")
         }
     }
 

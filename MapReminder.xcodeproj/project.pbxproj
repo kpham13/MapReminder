@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1E88081A0F2D3700262FC6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A1E88071A0F2D3700262FC6 /* CloudKit.framework */; };
 		0AAE9D291A09B45F007BAC6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE9D281A09B45F007BAC6B /* AppDelegate.swift */; };
 		0AAE9D2C1A09B45F007BAC6B /* MapReminder.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE9D2A1A09B45F007BAC6B /* MapReminder.xcdatamodeld */; };
 		0AAE9D2E1A09B45F007BAC6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AAE9D2D1A09B45F007BAC6B /* ViewController.swift */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A1E88061A0F2C7E00262FC6 /* MapReminder.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MapReminder.entitlements; sourceTree = "<group>"; };
+		0A1E88071A0F2D3700262FC6 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		0AAE9D231A09B45F007BAC6B /* MapReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AAE9D271A09B45F007BAC6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AAE9D281A09B45F007BAC6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0ACCFBA61A09D0F90048BFD4 /* MapKit.framework in Frameworks */,
+				0A1E88081A0F2D3700262FC6 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +74,7 @@
 		0AAE9D1A1A09B45E007BAC6B = {
 			isa = PBXGroup;
 			children = (
+				0A1E88071A0F2D3700262FC6 /* CloudKit.framework */,
 				0ACCFBA51A09D0F90048BFD4 /* MapKit.framework */,
 				0AAE9D251A09B45F007BAC6B /* MapReminder */,
 				0AAE9D3E1A09B45F007BAC6B /* MapReminderTests */,
@@ -89,10 +94,11 @@
 		0AAE9D251A09B45F007BAC6B /* MapReminder */ = {
 			isa = PBXGroup;
 			children = (
+				0AAE9D281A09B45F007BAC6B /* AppDelegate.swift */,
+				0A1E88061A0F2C7E00262FC6 /* MapReminder.entitlements */,
 				0AAE9D4B1A09B46C007BAC6B /* Model */,
 				0AAE9D4C1A09B471007BAC6B /* View */,
 				0AAE9D4D1A09B47B007BAC6B /* Controller */,
-				0AAE9D281A09B45F007BAC6B /* AppDelegate.swift */,
 				0AAE9D321A09B45F007BAC6B /* Images.xcassets */,
 				0AAE9D2A1A09B45F007BAC6B /* MapReminder.xcdatamodeld */,
 				0AAE9D261A09B45F007BAC6B /* Supporting Files */,
@@ -201,8 +207,12 @@
 				TargetAttributes = {
 					0AAE9D221A09B45F007BAC6B = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 6ALA275LQK;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
 								enabled = 1;
 							};
 						};
@@ -387,9 +397,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapReminder/MapReminder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MapReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -397,9 +411,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MapReminder/MapReminder.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = MapReminder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

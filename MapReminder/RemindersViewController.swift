@@ -22,9 +22,13 @@ class RemindersViewController: UIViewController, UITableViewDataSource, NSFetche
         let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         managedObjectContext = appDelegate.managedObjectContext
 
+        // Add Notification Center Observer for iCloud Changes
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didGetCloudChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: appDelegate.persistentStoreCoordinator)
+        
         // Delete All Core Data Caches (Required to fix Core Data fatal error)
         NSFetchedResultsController.deleteCacheWithName(nil)
-        
+
+        // Setup Fetched Results Controller
         var fetchRequest = NSFetchRequest(entityName: "Reminder")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: "Reminders")
@@ -74,6 +78,14 @@ class RemindersViewController: UIViewController, UITableViewDataSource, NSFetche
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.reloadData()
+    }
+    
+    // MARK: - CLOUD
+    
+    func didGetCloudChanges(notification: NSNotification) {
+        //managedObjectContext.performBlock { () -> Void in
+            managedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+        //}
     }
     
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import CoreData
 
 class AddReminderViewController: UIViewController, MKMapViewDelegate {
@@ -50,6 +51,7 @@ class AddReminderViewController: UIViewController, MKMapViewDelegate {
         // Creates Region around Annotation Coordinate
         var geoRegion = CLCircularRegion(center: selectedAnnotation.coordinate, radius: regionRadius, identifier: "ReminderRegion")
         locationManager.startMonitoringForRegion(geoRegion)
+        println("Region added and started monitoring region")
 
         // Insert Reminder into Database, utilizing Reminder model
         var newReminder = NSEntityDescription.insertNewObjectForEntityForName("Reminder", inManagedObjectContext: managedObjectContext) as Reminder
